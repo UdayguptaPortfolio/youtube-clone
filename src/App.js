@@ -1,16 +1,20 @@
 import './App.css';
-import Header from './component/Header';
-import RecommenderVideos from './component/RecommenderVideos';
-import Sidebar from './component/Sidebar';
+import Header from './component/header';
+import RecommenderVideos from './component/recommendedVideos';
+import Sidebar from './component/sidebar';
 import {BrowserRouter as Router ,Route} from 'react-router-dom';
 import {Switch} from 'react-router-dom';
-import SearchPage from './component/SearchPage';
-import Trending from './component/Trending';
-import YoutubePlayer from './component/YoutubePlayer';
+import SearchPage from './pages/searchPage';
+import Trending from './pages/trending';
+import YoutubePlayer from './pages/youtubePlayer';
+import Register from './pages/register';
+import Login from './pages/login';
+import { ApolloProvider } from '@apollo/react-hooks';
 
 function App() {
   return (
     <div className="app">
+      <ApolloProvider>
       <Router>
       <Header/>
         <Switch>
@@ -37,6 +41,16 @@ function App() {
               <YoutubePlayer/>
           </div>    
       </Route>
+      <Route path="/register">
+      <div className='app__page'>
+              <Register/>
+          </div>    
+      </Route>
+      <Route path="/login">
+      <div className='app__page'>
+              <Login/>
+          </div>    
+      </Route>
         </Switch>
       </Router>
       {/* <Header/>
@@ -44,7 +58,7 @@ function App() {
       <Sidebar/>
       <RecommenderVideos/>
       </div> */}
-     
+     </ApolloProvider>
     </div>
   );
 }

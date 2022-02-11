@@ -1,7 +1,7 @@
 import React from "react";
-import "../styles/Sidebar.css";
+import "../styles/sidebar.css";
 import {Link} from 'react-router-dom';
-import SidebarRow from "./SidebarRow";
+import SidebarRow from "./sidebarRow";
 import HomeIcon from "@material-ui/icons/Home";
 import WhatshotIcon from "@material-ui/icons/Whatshot";
 import SubscriptionsIcon from "@material-ui/icons/Subscriptions";
