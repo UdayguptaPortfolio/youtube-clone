@@ -4,6 +4,7 @@ import Avatar from "@material-ui/core/Avatar";
 import {Link} from 'react-router-dom';
 
 function VideoCard({ image, title, channel, views, timestamp, channelImage,href }) {
+  localStorage.setItem("href",href)
   return (
     <div className="videoCard">
       <Link to={`/video/:${title}`}><img className="videoCard__thumbnail" src={image} alt="" /></Link>

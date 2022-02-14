@@ -30,7 +30,7 @@ function Login(props) {
       history.push('/');
     },
     onError(err) {
-      setErrors(err.graphQLErrors[0].extensions.exception.errors);
+      setErrors(err.graphQLErrors[0].extensions.errors);
     },
     variables: values
   });
@@ -52,6 +52,7 @@ function Login(props) {
           error={errors.username ? true : false}
           onChange={onChange}
         />
+        <br/>
         <TextField
           label="Password"
           placeholder="Password.."
@@ -61,11 +62,12 @@ function Login(props) {
           error={errors.password ? true : false}
           onChange={onChange}
         />
+        <br/><br/>
         <Button type="submit" primary>
           Login
         </Button>
       </Form>
-      {Object.keys(errors).length && (
+      {Object.keys(errors).length>=0 && (
         <div className="ui error message">
           <ul className="list">
             {Object.values(errors).map((value) => (

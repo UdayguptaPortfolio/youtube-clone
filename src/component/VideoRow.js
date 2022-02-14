@@ -1,5 +1,7 @@
 import React from "react";
 import "../styles/videoRow.css";
+import {Link} from 'react-router-dom';
+
 function VideoRow({
   views,
   subs,
@@ -11,7 +13,7 @@ function VideoRow({
 }) {
   return (
     <div className="videoRow">
-      <img src={image} alt="" />
+      <Link to={`/video/:${title}`}><img className="videoCard__thumbnail" src={image} alt="" /></Link>
       <div className="videosRow__text">
         <h3>{title}</h3>
         <p className="videoRow__headline">
@@ -24,6 +26,7 @@ function VideoRow({
         <p className="videoRow__description">{description}</p>
       </div>
     </div>
+    
   );
 }
 

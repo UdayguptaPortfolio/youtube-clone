@@ -2,7 +2,7 @@ import React from "react";
 import "../styles/recommendedVideos.css";
 import VideoCard from "./videoCard";
 
-function RecommendedVideos() {
+function RecommendedVideos(props) {
   return (
     <div className="recommendedVideos">
       <h2>Recommended</h2>

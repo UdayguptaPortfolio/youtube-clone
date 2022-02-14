@@ -53,11 +53,6 @@ function App() {
       </Route>
         </Switch>
       </Router>
-      {/* <Header/>
-      <div className='app__page'>
-      <Sidebar/>
-      <RecommenderVideos/>
-      </div> */}
      </ApolloProvider>
     </div>
   );

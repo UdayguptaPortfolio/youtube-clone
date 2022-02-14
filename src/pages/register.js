@@ -1,10 +1,12 @@
 import React, { useContext, useState } from 'react';
-import { Button, Form } from 'semantic-ui-react';
+import { Form } from 'semantic-ui-react';
+import { TextField,Button } from '@material-ui/core';
 import { useMutation } from '@apollo/react-hooks';
 import gql from 'graphql-tag';
 import {useHistory} from 'react-router-dom';
 import { AuthContext } from '../context/auth';
 import { useForm } from '../util/hooks';
+import '../styles/register.css';
 
 function Register(props) {
   const history = useHistory();
@@ -29,7 +31,7 @@ function Register(props) {
       history.push('/');
     },
     onError(err) {
-      setErrors(err.graphQLErrors[0].extensions.exception.errors);
+      setErrors(err.graphQLErrors[0].extensions.errors);
     },
     variables: values
   });
@@ -39,10 +41,10 @@ function Register(props) {
   }
 
   return (
-    <div className="form-container">
+    <div className="register-container">
       <Form onSubmit={onSubmit} noValidate className={loading ? 'loading' : ''}>
         <h1>Register</h1>
-        <Form.Input
+        <TextField
           label="Username"
           placeholder="Username.."
           name="username"
@@ -51,7 +53,8 @@ function Register(props) {
           error={errors.username ? true : false}
           onChange={onChange}
         />
-        <Form.Input
+        <br/>
+        <TextField
           label="Email"
           placeholder="Email.."
           name="email"
@@ -60,7 +63,8 @@ function Register(props) {
           error={errors.email ? true : false}
           onChange={onChange}
         />
-        <Form.Input
+        <br/>
+        <TextField
           label="Password"
           placeholder="Password.."
           name="password"
@@ -69,7 +73,8 @@ function Register(props) {
           error={errors.password ? true : false}
           onChange={onChange}
         />
-        <Form.Input
+        <br/>
+        <TextField
           label="Confirm Password"
           placeholder="Confirm Password.."
           name="confirmPassword"
@@ -78,6 +83,7 @@ function Register(props) {
           error={errors.confirmPassword ? true : false}
           onChange={onChange}
         />
+        <br/><br/>
         <Button type="submit" primary>
           Register
         </Button>
