@@ -1,13 +1,13 @@
 import React from 'react'
 import '../styles/youtubePlayer.css';
-function YoutubePlayer({href}) {
-    console.log(href)
+function YoutubePlayer() {
+    console.log(localStorage.getItem('href'));
   return (
     <div className='youtubePlayer'>
 <iframe 
 width="942" 
 height="530"
- src={href}
+ src={localStorage.getItem('href')}
  title="YouTube video player"
  ></iframe>
     </div>
